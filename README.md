@@ -10,7 +10,7 @@ support for the Altivec instruction set.
 
 INSTALLATION
 ------------
-Place the two processor extension module ppcaltivec64.dll (currently only 64-bit IDA is supported)
+Place the appropriate processor extension module ppcaltivec64.(dll/so/dylib) (currently only 64-bit IDA has been compiled for)
 within your IDA Pro 'plugins' directory. By default the plugin is active when dealing with PPC code, but
 you can disable/re-enable the plugin by using the entry in the Edit/Plugins menu. If you want
 the plugin to be disabled on load, you will have to edit this source code. Change the value of
@@ -31,6 +31,17 @@ Run
 Change \_\_MAC\_\_ to \_\_LINUX\_\_ if applicable.
 
 The output binary will be in idasdk70/bin/plugins
+
+## cmake
+You may also use CMake
+
+`$ mkdir PPC-Altivec-IDA/cmake-build`  
+`$ cd PPC-Altivec-IDA/cmake-build`  
+`$ cmake -D IDASDK:string="/Applications/IDA Pro 7.0/idasdk70" ..`  
+`$ make`  
+
+Replace IDASDK variable with path to the IDA SDK on your system.
+
 
 CHANGELOG
 ------------
@@ -53,8 +64,11 @@ CHANGELOG
 * Support for Gekko instructions merged from the Gekko extension module created by HyperIris.
 * Also incldued support for SPRG names for PS3 as added by Tridentsx.
 
-#### 2018-03-12  yui-konnu   V1.9
+#### 12.03.18  yui-konnu   V1.9
 * Support for IDA 7. Added SPRG descriptions to auto-comments.
 
-#### 2018-04-03  yui-konnu   V1.9.1
+#### 03.04.18  yui-konnu   V1.9.1
 * Added Linux/macOS build methods.
+
+#### 08.06.18  yui-konnu   V1.9.1
+* Added CMake build file.
